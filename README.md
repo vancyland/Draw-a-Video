@@ -39,7 +39,7 @@ key insight: 如果我们已经有一个理想的充分预训练好的T2I model 
 
 | Image 1 | Image 2 | Image 3 | Image 4 | Image 5 |
 |---------|---------|---------|---------|---------|
-| <img src="https://github.com/user-attachments/assets/ad8b7cd4-c464-4932-b996-ac26897f56af" width="200" /> | <img src="https://github.com/user-attachments/assets/564c34fd-6233-4add-baff-f765cf3cf610" width="200" /> | <img src="https://github.com/user-attachments/assets/0d7a6737-5745-4db7-92d9-6aba57d000c5" width="200" /> | <img src="https://github.com/user-attachments/assets/a7c49408-c8c2-4740-a261-59ad2e2d5d68" width="200" /> | <img src="https://github.com/user-attachments/assets/7b935dfb-e170-443e-b511-9615fe4384df" width="200" /> |    |    |
+| <img src="https://github.com/user-attachments/assets/ad8b7cd4-c464-4932-b996-ac26897f56af" width="150" /> | <img src="https://github.com/user-attachments/assets/564c34fd-6233-4add-baff-f765cf3cf610" width="150" /> | <img src="https://github.com/user-attachments/assets/0d7a6737-5745-4db7-92d9-6aba57d000c5" width="150" /> | <img src="https://github.com/user-attachments/assets/a7c49408-c8c2-4740-a261-59ad2e2d5d68" width="150" /> | <img src="https://github.com/user-attachments/assets/7b935dfb-e170-443e-b511-9615fe4384df" width="150" /> |    |    |
 
 ### Video Representation
 | Video 1 | Video 2 | Video 3 | Video 4 | Video 5 |
