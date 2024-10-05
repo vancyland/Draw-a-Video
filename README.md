@@ -44,7 +44,11 @@ key insight: 如果我们已经有一个理想的充分预训练好的T2I model 
 ### Video Representation
 | Video 1 | Video 2 | Video 3 | Video 4 | Video 5 |
 |---------|---------|---------|---------|---------|
-| <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="150" controls></video> | <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="150" controls></video> | <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="150" controls></video> | <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="150" controls></video> | <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="150" controls></video> |
+| <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="150" controls></video> 
+| <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="150" controls></video>
+| <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="150" controls></video>
+| <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="150" controls></video>
+| <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="150" controls></video> |
 
 ---
 
