@@ -31,6 +31,11 @@ key insight: 如果我们已经有一个理想的充分预训练好的T2I model 
  ![1728108486442__000000000_4](https://github.com/user-attachments/assets/eff6ffb0-1718-47e3-bbaf-16ece77a9073)
 -->
 
+https://github.com/user-attachments/assets/47bf6bbe-878c-4301-aca2-5861859d499b
+
+
+https://github.com/user-attachments/assets/57e6e7d2-b18b-46e5-82d3-ba5712a998d6
+
 # Video Showcase
 
 ## Continuous Scenes of Driving Down the Las Vegas Strip
@@ -41,14 +46,16 @@ key insight: 如果我们已经有一个理想的充分预训练好的T2I model 
 |---------|---------|---------|---------|---------|
 | <img src="https://github.com/user-attachments/assets/ad8b7cd4-c464-4932-b996-ac26897f56af" width="150" /> | <img src="https://github.com/user-attachments/assets/564c34fd-6233-4add-baff-f765cf3cf610" width="150" /> | <img src="https://github.com/user-attachments/assets/0d7a6737-5745-4db7-92d9-6aba57d000c5" width="150" /> | <img src="https://github.com/user-attachments/assets/a7c49408-c8c2-4740-a261-59ad2e2d5d68" width="150" /> | <img src="https://github.com/user-attachments/assets/7b935dfb-e170-443e-b511-9615fe4384df" width="150" /> |    |    |
 
+
 ### Video Representation
 | Video 1 | Video 2 | Video 3 | Video 4 | Video 5 |
 |---------|---------|---------|---------|---------|
-| <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="150" controls></video> 
-| <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="150" controls></video>
-| <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="150" controls></video>
-| <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="150" controls></video>
-| <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="150" controls></video> |
+| <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="100" controls></video> 
+| <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="100" controls></video>
+| <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="100" controls></video>
+| <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="100" controls></video>
+| <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="100" controls></video> |
+
 
 ---
 
