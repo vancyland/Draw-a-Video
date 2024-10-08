@@ -11,9 +11,10 @@ Continuous scenes of driving down the Las Vegas Strip at sunset
 
 Continuous scenes of driving down the Las Vegas Strip at sunset
 
-https://github.com/user-attachments/assets/2081c8eb-7e9f-4150-9f11-ea820f63248a
+| Video 1 | Video 2 | 
+|---------|---------|
+| <video src="https://github.com/user-attachments/assets/2081c8eb-7e9f-4150-9f11-ea820f63248a" width="100" controls></video> | <video src="https://github.com/user-attachments/assets/43f0d42c-9bb4-47fc-bfdc-543d8f9f898d" width="100" controls></video>| 
 
-https://github.com/user-attachments/assets/43f0d42c-9bb4-47fc-bfdc-543d8f9f898d
 
 考虑到现在的TemporalAttention-based视频模型（animatediff，svd, videocrafter, align your latents等主流开源工作），往往在充分训练好的图像生成模型基础上，微调并额外训练一个小模块（几百M）用于保持帧间一致以及学习motion。这类视频模型往往不鼓励大幅运动，从上面结果也可以看出分辨率和时长也受限，一致性保持不佳，画面闪烁抖动不稳定。
 
@@ -31,25 +32,17 @@ key insight: 如果我们已经有一个理想的充分预训练好的T2I model 
  ![1728108486442__000000000_4](https://github.com/user-attachments/assets/eff6ffb0-1718-47e3-bbaf-16ece77a9073)
 -->
 
-https://github.com/user-attachments/assets/47bf6bbe-878c-4301-aca2-5861859d499b
-
-https://github.com/user-attachments/assets/57e6e7d2-b18b-46e5-82d3-ba5712a998d6
-
-**Prompt:** Generate a 16-frame video arranged in a 4x4 grid, where the blocks represent continuous scenes of driving down the Las Vegas Strip.
+**Prompt:** Generate a video arranged in a 4x4 grid, where the blocks represent continuous scenes of driving down the Las Vegas Strip.
 
 | Image 1 | Image 2 | Image 3 | Image 4 | Image 5 |
 |---------|---------|---------|---------|---------|
 | <img src="https://github.com/user-attachments/assets/ad8b7cd4-c464-4932-b996-ac26897f56af" width="150" /> | <img src="https://github.com/user-attachments/assets/564c34fd-6233-4add-baff-f765cf3cf610" width="150" /> | <img src="https://github.com/user-attachments/assets/0d7a6737-5745-4db7-92d9-6aba57d000c5" width="150" /> | <img src="https://github.com/user-attachments/assets/a7c49408-c8c2-4740-a261-59ad2e2d5d68" width="150" /> | <img src="https://github.com/user-attachments/assets/7b935dfb-e170-443e-b511-9615fe4384df" width="150" /> |    |    |
 
-
-### Video Representation
 | Video 1 | Video 2 | Video 3 | Video 4 | Video 5 |
 |---------|---------|---------|---------|---------|
 | <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="100" controls></video> | <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="100" controls></video>| <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="100" controls></video>| <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="100" controls></video>| <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="100" controls></video> |
 
 ---
-
-## Blue Car Driving on Mars
 
 **Prompt:** Generate a 16-frame video arranged in a 16x1 grid, where the blocks represent a blue car driving on Mars.
 
@@ -74,7 +67,7 @@ https://github.com/user-attachments/assets/5069bd4d-4984-4fed-b527-5ea954e50fc7
 https://github.com/user-attachments/assets/095f96d8-8795-4826-a70b-f5a97eaf97de
 -->
 
-可以发现，FLUX似乎能理解我们要求生成视频的指令，且天然具备一致性，但是存在3个问题：1.具体的grid数量和位置理解不精准；2.视频运动不合理；3.视频的分辨率*时长受限于图像的分辨率
+可以发现，FLUX似乎能理解我们要求生成视频的指令，且天然具备一致性，但是存在3个问题：1.具体的grid数量和位置理解不精准；2.视频运动不合理或者太静态；3.视频的分辨率*时长受限于图像的分辨率
 
 那么我们可以考虑在视频数据集上微调，让他学会“将视频画在一张图上”，从而无需任何额外模块，直接就能完成视频生成任务。然后插帧/超分，提升视频的分辨率*时长。
 
