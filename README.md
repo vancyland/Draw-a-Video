@@ -33,12 +33,7 @@ key insight: 如果我们已经有一个理想的充分预训练好的T2I model 
 
 https://github.com/user-attachments/assets/47bf6bbe-878c-4301-aca2-5861859d499b
 
-
 https://github.com/user-attachments/assets/57e6e7d2-b18b-46e5-82d3-ba5712a998d6
-
-# Video Showcase
-
-## Continuous Scenes of Driving Down the Las Vegas Strip
 
 **Prompt:** Generate a 16-frame video arranged in a 4x4 grid, where the blocks represent continuous scenes of driving down the Las Vegas Strip.
 
@@ -50,12 +45,7 @@ https://github.com/user-attachments/assets/57e6e7d2-b18b-46e5-82d3-ba5712a998d6
 ### Video Representation
 | Video 1 | Video 2 | Video 3 | Video 4 | Video 5 |
 |---------|---------|---------|---------|---------|
-| <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="100" controls></video> 
-| <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="100" controls></video>
-| <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="100" controls></video>
-| <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="100" controls></video>
-| <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="100" controls></video> |
-
+| <video src="https://github.com/user-attachments/assets/dfffa59a-fdda-4019-abd7-f5a975f18dd0" width="100" controls></video> | <video src="https://github.com/user-attachments/assets/2607f810-7493-44d7-8a7f-d759307cfed9" width="100" controls></video>| <video src="https://github.com/user-attachments/assets/0f18ecef-f42c-438c-97cd-358b5c604ae3" width="100" controls></video>| <video src="https://github.com/user-attachments/assets/2d0ce30b-253e-4ee3-a95a-8cbd34100f1e" width="100" controls></video>| <video src="https://github.com/user-attachments/assets/c5ebb6de-f35d-47ba-8767-ca4ae3d3121b" width="100" controls></video> |
 
 ---
 
@@ -84,11 +74,16 @@ https://github.com/user-attachments/assets/5069bd4d-4984-4fed-b527-5ea954e50fc7
 https://github.com/user-attachments/assets/095f96d8-8795-4826-a70b-f5a97eaf97de
 -->
 
-可以发现，FLUX似乎能理解我们要求生成视频的指令，且天然具备一致性，但是存在3个问题：1.具体的grid数量理解不清楚；2.视频运动不合理；3.视频的分辨率*时长受限于图像的分辨率
+可以发现，FLUX似乎能理解我们要求生成视频的指令，且天然具备一致性，但是存在3个问题：1.具体的grid数量和位置理解不精准；2.视频运动不合理；3.视频的分辨率*时长受限于图像的分辨率
 
-那么我们可以考虑在视频数据集上微调，让他学会“将视频画在一张图上”，从而无需任何额外模块，直接就能完成视频生成任务。然后再使用超分的办法上采样，这里图像的分辨率就等于视频的分辨率*时长。
+那么我们可以考虑在视频数据集上微调，让他学会“将视频画在一张图上”，从而无需任何额外模块，直接就能完成视频生成任务。然后插帧/超分，提升视频的分辨率*时长。
 
-具体而言，针对驾驶场景这个下游任务，收集数据集，每隔10帧进行采样，采样16帧拼接成一个大图（192*4，320*4），在一个子数据集上（最后2800张大图）简单微调后得到
+具体而言，针对驾驶场景这个下游任务，收集数据集，每隔10帧进行采样，采样16帧拼接成一个大图（192*4，320*4），如下示例
+
+![100](https://github.com/user-attachments/assets/0ca0c09e-598d-4262-80d2-166fd4e96f27)
+
+
+在一个子数据集上（约2800张(4,4)grid）简单微调2500steps后得到
 
 https://github.com/user-attachments/assets/a00794d2-4659-4ab2-a45b-d034f7934af6
 
@@ -98,9 +93,24 @@ https://github.com/user-attachments/assets/42846f68-4dff-443b-9c4d-1a58a87885d2
 
 https://github.com/user-attachments/assets/8120e254-7b9a-441c-8a8c-63dacf52fb77
 
+再看看zero-shot泛化能力，即训练数据集全是（4，4）grid，但是测试的时候让他直接生成其他尺寸的grid。
+
+**Prompt:** Generate a video arranged in a mxn grid, where the blocks represent continuous scenes of driving down the Las Vegas Strip.
+
+| (6,4) | (8,4) | 
+|---------|---------|
+| <img src="https://github.com/user-attachments/assets/2866c3c8-b4bb-4fc4-8055-ad0f234490fa" width="300" /> | <img src="https://github.com/user-attachments/assets/0897404f-8168-4aa6-8b11-89eb983ff7bb" width="300" /> |    |    |
 
 
+（6，4）grid
 
+https://github.com/user-attachments/assets/712d8ff0-1793-46f0-b322-0152d55757ae
+
+（8，4）grid
+
+https://github.com/user-attachments/assets/906f867e-5c70-468a-b220-d633ca3dc1d5
+
+总的来说，motion幅度很大，但是有掉帧的感觉，分辨率也还不够大，另外生成的图像有些对格子理解不好，没有严格放在4*4 grid中。虽然训练数据集种类单一且小，但是具备一定泛化能力。
 
 
 
